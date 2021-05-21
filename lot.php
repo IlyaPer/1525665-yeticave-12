@@ -5,6 +5,10 @@
       header("Location: pages/404.html");
       exit;
     }
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        die("action работает!");
+    }
+
     require_once("./function.php");
     require_once("helpers.php");
     $sql_lot = "SELECT categories.name AS category_name, lots.name, lots.id AS id, description, first_price, url, date_delection, bet_step FROM lots JOIN categories ON categories.id = lots.category_id WHERE lots.id = $id;";
